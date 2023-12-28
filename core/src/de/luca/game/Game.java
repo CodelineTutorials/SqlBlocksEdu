@@ -4,28 +4,37 @@ import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.utils.ScreenUtils;
+import de.luca.debug.Logger;
+import de.luca.ui.parts.Button;
+import de.luca.ui.parts.Clickable;
 
-public class Game extends ApplicationAdapter {
-	SpriteBatch batch;
-	Texture img;
+public class Game extends com.badlogic.gdx.Game {
 	
 	@Override
 	public void create () {
-		batch = new SpriteBatch();
-		img = new Texture("badlogic.jpg");
+
+		this.setScreen(new MainScreen());
+		System.out.println("hallo");
+		Button button = new Button(10, 10, 10, 10);
+		button.setOnClick(new Clickable() {
+			@Override
+			public void onClick() {
+				System.out.println("Hallo Welt");
+			}
+		});
+		button.onClick();
+
 	}
 
 	@Override
 	public void render () {
-		ScreenUtils.clear(1, 0, 0, 1);
-		batch.begin();
-		batch.draw(img, 0, 0);
-		batch.end();
+		super.render();
 	}
 	
 	@Override
 	public void dispose () {
-		batch.dispose();
-		img.dispose();
+		System.out.println("\n\n");
+		System.err.println("Total warnings encountered: " + Logger.getWarningCount());
+		System.err.println("Total errors encountered: " + Logger.getErrorCount());
 	}
 }
