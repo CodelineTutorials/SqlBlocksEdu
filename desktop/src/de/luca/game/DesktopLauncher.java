@@ -12,14 +12,16 @@ public class DesktopLauncher {
 		config.setForegroundFPS(60);
 		config.setTitle("SqlBlocksEdu");
 
-		// TODO.java: Make windows responsible so that no limitation is necessary
+		// TODO.java: Make windows responsible so that no limitation is necessary --> For the fist release it may fit as it is
 		// This part of the code shouldn't be in the product at the end!!
 		config.setWindowSizeLimits(1920, 1080, 1920, 1080);
+		config.setWindowedMode(1920, 1080);
 		config.setMaximized(true);
 		config.setResizable(false);
 
 		if(Debug.DEBUG_ENABLED) {
 			config.setWindowSizeLimits(600, 400, 2560, 1440);
+			config.setWindowedMode(1920, 1080);
 			config.setMaximized(false);
 			config.setResizable(true);
 		}

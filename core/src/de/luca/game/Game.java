@@ -5,6 +5,7 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.utils.ScreenUtils;
 import de.luca.debug.Logger;
+import de.luca.ui.UiManager;
 import de.luca.ui.parts.Button;
 import de.luca.ui.parts.Clickable;
 
@@ -14,20 +15,12 @@ public class Game extends com.badlogic.gdx.Game {
 	public void create () {
 
 		this.setScreen(new MainScreen());
-		System.out.println("hallo");
-		Button button = new Button(10, 10, 10, 10);
-		button.setOnClick(new Clickable() {
-			@Override
-			public void onClick() {
-				System.out.println("Hallo Welt");
-			}
-		});
-		button.onClick();
 
 	}
 
 	@Override
 	public void render () {
+		UiManager.refresh();
 		super.render();
 	}
 	
