@@ -1,13 +1,17 @@
 package de.luca.ui;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.math.Vector2;
+import de.luca.ui.parts.Button;
+import de.luca.ui.parts.SelectButtonGroup;
 
 public class UiManager {
 
     private static int windowWidth = Gdx.graphics.getWidth();
     private static int windowHeight = Gdx.graphics.getHeight();
     private static Vector2 mousePos = new Vector2(Gdx.input.getX(), windowHeight - Gdx.input.getY());
+    private static Texture background = null;
 
     // Handles everything that has to be refreshed constantly
     public static void refresh() {
@@ -15,11 +19,18 @@ public class UiManager {
     }
 
     public static void draw(UiPart... parts) {
+
+        if(background != null) {
+            StaticObjects.batch.begin();
+            StaticObjects.batch.draw(background, 0, 0);
+            StaticObjects.batch.end();
+        }
         for(UiPart part: parts) {
-            if(part.isClicked()) part.listener.onClick();
-            else if(part.isHovered()) part.listener.onHover();
+            if (part.isClicked()) part.listener.onClick();
+            else if (part.isHovered()) part.listener.onHover();
             part.draw();
         }
+
     }
 
     public static Vector2 getMousePos() {
@@ -40,5 +51,13 @@ public class UiManager {
 
     public static int getWindowHeight() {
         return windowHeight;
+    }
+
+    public static void setBackground(Texture texture) {
+        background = texture;
+    }
+
+    public static Texture getBackground() {
+        return background;
     }
 }

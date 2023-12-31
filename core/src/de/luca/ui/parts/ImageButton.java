@@ -7,10 +7,14 @@ import de.luca.ui.UiPart;
 public class ImageButton extends UiPart {
 
     private Texture texture;
+    private Texture hoverTexture = null;
+    private Texture clickedTexture = null;
 
-    public ImageButton(int x, int y, Texture texture) {
+    public ImageButton(int x, int y, Texture texture, Texture hoverTexture, Texture clickedTexture) {
         super(x, y);
         this.texture = texture;
+        this.hoverTexture = hoverTexture;
+        this.clickedTexture = clickedTexture;
         setWidth(texture.getWidth());
         setHeight(texture.getHeight());
     }
@@ -18,7 +22,9 @@ public class ImageButton extends UiPart {
     @Override
     public void draw() {
         StaticObjects.batch.begin();
-        StaticObjects.batch.draw(texture, getX(), getY());
+        if(isClicked()) StaticObjects.batch.draw(clickedTexture, getX(), getY());
+        else if(isHovered()) StaticObjects.batch.draw(hoverTexture, getX(), getY());
+        else StaticObjects.batch.draw(texture, getX(), getY());
         StaticObjects.batch.end();
     }
 
@@ -26,8 +32,24 @@ public class ImageButton extends UiPart {
         this.texture = texture;
     }
 
-    public Texture getTexturePath() {
+    public Texture getTexture() {
         return this.texture;
+    }
+
+    public void setHoverTexture(Texture texture) {
+        this.hoverTexture = texture;
+    }
+
+    public Texture getHoverTexture() {
+        return this.hoverTexture;
+    }
+
+    public void setClickedTexture(Texture texture) {
+        this.clickedTexture = texture;
+    }
+
+    public Texture getClickedTexture() {
+        return this.clickedTexture;
     }
 
 
