@@ -7,8 +7,8 @@ public abstract class UiPart {
 
     private int x;
     private int y;
-    private int width;
-    private int height;
+    private int width = 0; // Value should be changed in the constructor of the subclasses
+    private int height = 0; // Value should be changed in the constructor of the subclasses
 
     Listener listener = new Listener() {
 
@@ -23,15 +23,17 @@ public abstract class UiPart {
         }
     };
 
-    public UiPart(int x, int y, int width, int height) {
+    public UiPart(int x, int y) {
         this.x = x;
         this.y = y;
-        this.width = width;
-        this.height = height;
     }
 
     public void setListener(Listener listener) {
         this.listener = listener;
+    }
+
+    public Listener getListener() {
+        return this.listener;
     }
 
     public abstract void draw();
