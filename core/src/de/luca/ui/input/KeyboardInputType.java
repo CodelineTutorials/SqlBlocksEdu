@@ -5,7 +5,7 @@ public enum KeyboardInputType {
     /**
      * ALL = All characters available
      * LETTERS = All letters from a to z and 'space'
-     * NUMBERS = Numbers from 0 to 9 (and also basic math operations: + - * /)
+     * NUMBERS = Numbers from 0 to 9 (and also basic math operations: + - * /) as well as . and , (Registered as .)
      */
     ALL, LETTERS, NUMBERS
 

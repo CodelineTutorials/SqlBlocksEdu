@@ -9,6 +9,13 @@ public class Line extends UiPart {
     private int x1;
     private int y1;
 
+    /**
+     * Constructor base for every child of UiPart
+     *
+     * @param x x position of UiPart object
+     * @param y y position of UiPart object
+     * @since 1.0
+     */
     public Line(int x, int y, int x1, int y1) {
         super(x, y);
         this.x1 = x1;

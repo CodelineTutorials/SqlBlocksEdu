@@ -11,6 +11,13 @@ public class SelectButtonGroup extends UiPart {
     private final SelectButton[] buttons;
     private String value = "";
 
+    /**
+     * Constructor base for every child of UiPart
+     *
+     * @param x x position of UiPart object
+     * @param y y position of UiPart object
+     * @since 1.0
+     */
     public SelectButtonGroup(int x, int y, SelectButton... buttons) {
         super(x, y);
         this.buttons = buttons;

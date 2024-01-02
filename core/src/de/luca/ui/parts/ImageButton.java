@@ -10,6 +10,13 @@ public class ImageButton extends UiPart {
     private Texture hoverTexture = null;
     private Texture clickedTexture = null;
 
+    /**
+     * Constructor base for every child of UiPart
+     *
+     * @param x x position of UiPart object
+     * @param y y position of UiPart object
+     * @since 1.0
+     */
     public ImageButton(int x, int y, Texture texture, Texture hoverTexture, Texture clickedTexture) {
         super(x, y);
         this.texture = texture;

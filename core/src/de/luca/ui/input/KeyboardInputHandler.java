@@ -11,7 +11,7 @@ public class KeyboardInputHandler {
         // Letters and All as KeyboardInputType
         if (inputType == KeyboardInputType.LETTERS || inputType == KeyboardInputType.ALL) {
             // space key
-            if(Gdx.input.isKeyJustPressed(Input.Keys.SPACE)) return " ";
+            if (Gdx.input.isKeyJustPressed(Input.Keys.SPACE)) return " ";
             // capitalized letters
             else if (Gdx.input.isKeyJustPressed(Input.Keys.A) && Gdx.input.isKeyPressed(Input.Keys.SHIFT_LEFT))
                 return "A";
@@ -95,7 +95,7 @@ public class KeyboardInputHandler {
         }
         // Numbers, All as KeyboardInputType
         if (inputType == KeyboardInputType.NUMBERS || inputType == KeyboardInputType.ALL) {
-            // numbers from 0 to 9 and basic math operators: + - * /
+            // numbers from 0 to 9 and basic math operators: + - * / (as well as . and ,)
             if (Gdx.input.isKeyJustPressed(Input.Keys.NUM_0) || Gdx.input.isKeyJustPressed(Input.Keys.NUMPAD_0))
                 return "0";
             else if (Gdx.input.isKeyJustPressed(Input.Keys.NUM_1) || Gdx.input.isKeyJustPressed(Input.Keys.NUMPAD_1))
@@ -120,6 +120,7 @@ public class KeyboardInputHandler {
             else if (Gdx.input.isKeyJustPressed(Input.Keys.NUMPAD_SUBTRACT)) return "-";
             else if (Gdx.input.isKeyJustPressed(Input.Keys.NUMPAD_MULTIPLY)) return "*";
             else if (Gdx.input.isKeyJustPressed(Input.Keys.NUMPAD_DIVIDE)) return "/";
+            else if (Gdx.input.isKeyJustPressed(Input.Keys.NUMPAD_DOT) || Gdx.input.isKeyJustPressed(Input.Keys.COMMA)) return ".";
         }
 
         return "";

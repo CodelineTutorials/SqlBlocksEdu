@@ -16,6 +16,13 @@ public class Button extends UiPart {
     private boolean isBorderEnabled = false;
     private boolean isTransparent = false;
 
+    /**
+     * Constructor base for every child of UiPart
+     *
+     * @param x x position of UiPart object
+     * @param y y position of UiPart object
+     * @since 1.0
+     */
     public Button(String text, int x, int y, int width, int height) {
         super(x, y);
         this.text = text;
