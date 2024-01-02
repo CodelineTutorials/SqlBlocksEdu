@@ -3,12 +3,16 @@ package de.luca.game;
 import de.luca.debug.Logger;
 import de.luca.ui.UiManager;
 
+import java.util.Locale;
+
 public class Game extends com.badlogic.gdx.Game {
 	
 	@Override
 	public void create () {
 
+		Locale.setDefault(Locale.GERMANY);
 		this.setScreen(new MainScreen());
+		UiManager.initialize();
 
 	}
 

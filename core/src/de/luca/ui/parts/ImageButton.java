@@ -7,8 +7,9 @@ import de.luca.ui.UiPart;
 public class ImageButton extends UiPart {
 
     private Texture texture;
-    private Texture hoverTexture = null;
-    private Texture clickedTexture = null;
+    private final Texture defaultTexture;
+    private Texture hoverTexture;
+    private Texture clickedTexture;
 
     /**
      * Constructor base for every child of UiPart
@@ -20,6 +21,7 @@ public class ImageButton extends UiPart {
     public ImageButton(int x, int y, Texture texture, Texture hoverTexture, Texture clickedTexture) {
         super(x, y);
         this.texture = texture;
+        this.defaultTexture = texture;
         this.hoverTexture = hoverTexture;
         this.clickedTexture = clickedTexture;
         setWidth(texture.getWidth());
@@ -41,6 +43,10 @@ public class ImageButton extends UiPart {
 
     public Texture getTexture() {
         return this.texture;
+    }
+
+    public Texture getDefaultTexture() {
+        return this.defaultTexture;
     }
 
     public void setHoverTexture(Texture texture) {

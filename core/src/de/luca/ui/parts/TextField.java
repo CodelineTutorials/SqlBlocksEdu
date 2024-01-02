@@ -49,6 +49,7 @@ public class TextField extends UiPart implements SelectableInput {
             if(!text.isEmpty()) {
                 if(Gdx.input.isKeyJustPressed(Input.Keys.BACKSPACE)) text = text.substring(0, text.length()-1);
             }
+            if(Gdx.input.isKeyJustPressed(Input.Keys.ESCAPE)) this.isSelected = false;
         }
 
         if(!isTransparent) {
